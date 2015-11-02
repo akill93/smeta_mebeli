@@ -109,10 +109,63 @@ public class Smeta extends JDialog {/*Класс Calc_distance, который �
 		*/
 		
 		
-		
-		
-		
-		
+				//создаем текстовые поля для того чтобы в них записывать рассчитанные результаты
+		Name_label = new JLabel("", JLabel.RIGHT);
+		Kol_prod_label = new JLabel("", JLabel.RIGHT);
+		Mat_zatr_label = new JLabel("", JLabel.RIGHT);
+		Stoim_mater_label = new JLabel("", JLabel.RIGHT);
+		Stoim_kompl_label = new JLabel("", JLabel.RIGHT);
+		Stoim_vspom_mater_label = new JLabel("", JLabel.RIGHT);
+		Toplivo_label = new JLabel("", JLabel.RIGHT);
+		Zaprl_label = new JLabel("", JLabel.RIGHT);
+		Otch_label = new JLabel("", JLabel.RIGHT);
+		Pens_label = new JLabel("", JLabel.RIGHT);
+		Medic_label = new JLabel("", JLabel.RIGHT);
+		Soc_strah_label = new JLabel("", JLabel.RIGHT);
+		Amort_label = new JLabel("", JLabel.RIGHT);
+		Pr_rash_label = new JLabel("", JLabel.RIGHT);
+		Itogo_label = new JLabel("", JLabel.RIGHT);
+		//создаем текстовые поля для того чтобы в них записывать рассчитанные результаты
+
+		//Добавление компонентов JLabel, JTextField, JComboBox, JCheckBox на панели Smeta_panel и Smeta_panel_1
+		Smeta_panel.add(Smeta_1);
+		Smeta_panel_1.add(Smeta_2);
+		Smeta_panel_1.add(Name_label);
+		Smeta_panel_1.add(Smeta_3);
+		Smeta_panel_1.add(Kol_prod_label);
+		Smeta_panel_1.add(Smeta_4);
+		Smeta_panel_1.add(Mat_zatr_label);
+		Smeta_panel_1.add(Smeta_5);
+		Smeta_panel_1.add(Stoim_mater_label);
+		Smeta_panel_1.add(Smeta_6);
+		Smeta_panel_1.add(Stoim_kompl_label);	
+		Smeta_panel_1.add(Smeta_7);
+		Smeta_panel_1.add(Stoim_vspom_mater_label);	
+		Smeta_panel_1.add(Smeta_8);
+		Smeta_panel_1.add(Toplivo_label);	
+		Smeta_panel_1.add(Smeta_9);
+		Smeta_panel_1.add(Zaprl_label);
+		Smeta_panel_1.add(Smeta_10);
+		Smeta_panel_1.add(Otch_label);
+		Smeta_panel_1.add(Smeta_11);
+		Smeta_panel_1.add(Pens_label);
+		Smeta_panel_1.add(Smeta_12);
+		Smeta_panel_1.add(Medic_label);
+		Smeta_panel_1.add(Smeta_13);
+		Smeta_panel_1.add(Soc_strah_label);
+		Smeta_panel_1.add(Smeta_14);
+		Smeta_panel_1.add(Amort_label);
+		Smeta_panel_1.add(Smeta_15);
+		Smeta_panel_1.add(Pr_rash_label);	
+		Smeta_panel_1.add(Smeta_16);
+		Smeta_panel_1.add(Itogo_label);	
+		//Добавление компонентов JLabel, JTextField, JComboBox, JCheckBox на панели Smeta_panel и Smeta_panel_1
+	
+		JButton Button_del = new JButton("Очистить результаты"); /*В скобках надпись на кнопке*/
+		Button_panel.add(Button_del);/*  Добавление кнопки в панель */
+			
+		JButton Button_exit = new JButton("Закрыть");
+		Button_panel.add(Button_exit);
 		
 		
 		Button_exit.addActionListener(new ActionListener() //добавляем слушателя события для кнопки 
