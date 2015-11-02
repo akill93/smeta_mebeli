@@ -34,11 +34,11 @@ static double Amort, Stoim_stanka, Srok_sl, Kol_prod, Stoim_mater, Stoim_kompl, 
 		/* В переменную  записываются данные введеные пользователем в текстовое поле которое расположено в файле Index.
 		Преобразование данных в тип Double. */
 		
-		if (Index.Name_int==0) {Name="столы";} //Name_int-переменная которая отвечает за выпадающий список.
-		else if (Index.Name_int==1) {Name="стулья";} 
-		else if (Index.Name_int==2) {Name="шкафы";}
-		else if (Index.Name_int==2) {Name="кровати";} 
-		else {Name="тумбы";} 
+		if (Index.Name_int==0) {Name="стол";} //Name_int-переменная которая отвечает за выпадающий список.
+		else if (Index.Name_int==1) {Name="стул";} 
+		else if (Index.Name_int==2) {Name="шкаф";}
+		else if (Index.Name_int==2) {Name="кровать";} 
+		else {Name="тумба";} 
 		
 	}
 	
