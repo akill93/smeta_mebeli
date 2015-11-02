@@ -74,7 +74,20 @@ public class Index extends JFrame{
 		});
 	}
 	private JPanel Smeta_panel, Smeta_panel_1, Button_panel;//панели на которых располагаются поля и кнопки. Панели доступны только для данного класса (private)
-
+	private JButton Sost_smetu;// кнопка Рассчитать которая доступна только для данного класса
+	private JLabel Smeta_1,Smeta_2,Smeta_3,Smeta_4, Smeta_5, Smeta_6, Smeta_7, Smeta_8, Smeta_9, Smeta_10, Smeta_11, 
+	Smeta_12, Smeta_13, Smeta_14, Smeta_15,Smeta_16,Smeta_pust; // Панели на которых располагается текст
+	public static JTextField Kol_prod_text, Stoim_mater_text, Stoim_kompl_text, Stoim_vspom_mater_text, 
+	Toplivo_text, Zaprl_text, Stoim_stanka_text, Srok_sl_text, Amort_text, Pr_rash_text, Kol_detal_text;/* текстовые поля в которые пользователь 
+	вводит данные, доступны для любого файла из пакета pack */
+	public static JCheckBox Ras_amort_checkbox;// компонент флажок
+	public static JComboBox Name_combobox;//выпадающий список
+	public static int Name_int, Name_combo_int,Ras_amort_int=0, ver=0;//переменная типа integer, доступная любому классу
+		/*static позволяет определять статические методы. Это такие методы, которые являются общими для класса, а не для
+	отдельного объекта этого класса. Также они могут работать лишь со статическими полями класса.К статическим методам 
+	и переменным можно обращаться через имя класса.*/
+	
+	
 	
 	public Index() { /*Модификатор доступа public означает, что метод Index()виден и доступен любому классу.
 		static означает, что не нужно создавать экземпляр(копию) объекта Index в памяти, чтобы использовать этот метод.
@@ -111,6 +124,96 @@ public class Index extends JFrame{
 		 столбцами 0, расстояние между строками 5 */
 		Button_panel.setLayout(new GridLayout(1,1));//на панели 1 строка,1столбец, будет расположена кнопка
 
+Smeta_1 = new JLabel("Данные для составления сметы затрат", JLabel.CENTER);
+		Smeta_2 = new JLabel("Пожалуйста, введите затраты за месяц:", JLabel.LEFT);
+		Smeta_3 = new JLabel("Наименование изделия:", JLabel.LEFT);
+		Smeta_4 = new JLabel("Количество произведенной продукции, шт: ", JLabel.LEFT);
+		Smeta_5 = new JLabel("1. Материальные затраты:", JLabel.LEFT);
+		Smeta_6 = new JLabel("     1.1. Сырье и материалы, руб:", JLabel.LEFT);
+		Smeta_7 = new JLabel("     1.2. Комплектующие изделия, руб:", JLabel.LEFT);
+		Smeta_8 = new JLabel("     1.3. Вспомогательные материалы, руб:", JLabel.LEFT);
+		Smeta_9 = new JLabel("     1.4. Топливо и энергия, руб:", JLabel.LEFT);
+		Smeta_10 = new JLabel("2. Затраты на оплату труда, руб:", JLabel.LEFT);
+		Smeta_11 = new JLabel("3. Рассчитать амортизацию?", JLabel.LEFT);
+		Smeta_12 = new JLabel("     3.1.1. Стоимость станка, руб:", JLabel.LEFT);
+		Smeta_13 = new JLabel("     3.1.2. Срок службы станка, в месяцах:", JLabel.LEFT);
+		Smeta_14 = new JLabel("     3.2. Вычет амортизации, руб:", JLabel.LEFT);
+		Smeta_15 = new JLabel("4. Прочие расходы, руб:", JLabel.LEFT);
+		Smeta_16 = new JLabel("Количество изделий, шт:", JLabel.LEFT);
+
+		Smeta_pust=new JLabel("");//для отображения отступа между полями для ввода текста количество продукции и сырье и материалы
+		/*Обозначаем что переменные Label_1,Label_2..являются объектом JLabel и указываем какой текст будет выводиться.
+		JLabel.LEFT - выравнивание по левому краю,
+		JLabel.CENTER - выравнивание по центру
+		*/
+		
+		Sost_smetu = new JButton("Составить смету"); //В скобках - надпись на кнопке
+		
+		Ras_amort_checkbox = new JCheckBox();//компонент флажок 
+		Ras_amort_checkbox.setToolTipText("Амортизация известна или нужно рассчитать?");
+		/* setToolTipText - подсказка, которая показывается при наведении на элемент (компонент флажок)*/
+		
+		Kol_prod_text = new JTextField();
+		Kol_prod_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Kol_prod_text.setToolTipText("Введите количество произведенной продукции");//всплывающая подсказка при наведении на текстовое поле
+    	
+		Stoim_mater_text = new JTextField();
+		Stoim_mater_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Stoim_mater_text.setToolTipText("Введите стоимость сырья и материалов");//всплывающая подсказка при наведении на текстовое поле
+    			
+		Stoim_kompl_text = new JTextField();
+		Stoim_kompl_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Stoim_kompl_text.setToolTipText("Введите стоимость комплектующих изделий");//всплывающая подсказка при наведении на текстовое поле
+
+		Stoim_vspom_mater_text = new JTextField();
+		Stoim_vspom_mater_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Stoim_vspom_mater_text.setToolTipText("Введите стоимость вспомогательных материалов");//всплывающая подсказка при наведении на текстовое поле
+
+		Toplivo_text = new JTextField();
+		Toplivo_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Toplivo_text.setToolTipText("Введите расходы на топливо и энергию");//всплывающая подсказка при наведении на текстовое поле
+
+		Zaprl_text = new JTextField();
+		Zaprl_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Zaprl_text.setToolTipText("Введите затраты на оплату труда");//всплывающая подсказка при наведении на текстовое поле
+
+		Stoim_stanka_text = new JTextField();
+		Stoim_stanka_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Stoim_stanka_text.setToolTipText("Введите стоимость станка");//всплывающая подсказка при наведении на текстовое поле
+
+		Srok_sl_text = new JTextField();
+		Srok_sl_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Srok_sl_text.setToolTipText("Введите срок службы станка");//всплывающая подсказка при наведении на текстовое поле
+
+		Amort_text = new JTextField();
+		Amort_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Amort_text.setToolTipText("Введите вычет амортизации, если он известен. Если нет - нажмите на Рассчитать амортизацию");//всплывающая подсказка при наведении на текстовое поле
+
+		Pr_rash_text = new JTextField();
+		Pr_rash_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)
+		Pr_rash_text.setToolTipText("Введите прочие расходы");//всплывающая подсказка при наведении на текстовое поле
+
+		Kol_detal_text = new JTextField();
+		Kol_detal_text.setMargin(new Insets(2, 5, 2, 5));//установка внутренних отступов для текстового поля (2-верхний отступ, 5-левый, 2-нижний, 5-правый)		
+		Kol_detal_text.setToolTipText("Введите количество изделий на которые надо составит смету");//всплывающая подсказка при наведении на текстовое поле
+
+    	String[] str = {
+				"столы",
+  			    "стулья",
+  			    "шкафы",
+  			    "кровати","тумбы"
+  			};
+		/*	String[] str – класс с оператором приема строки
+	  	В строке ниже мы будем использовать данный оператор для передачи строки в выпадающий список
+	 	*/
+		Name_combobox = new JComboBox(str);   
+		/*	JComboBox - Поле с выпадающим списком
+	   	Создаем переменную Box_st И присваиваем ей функции класса JComboBox
+	   	Оператор new создает экземпляр указанного класса
+	   	JComboBox(str) значит что мы в качестве строк
+	   	выпадающего списка принимаем считанные строки параметром str
+	 	*/
+        
 
 }
 }
