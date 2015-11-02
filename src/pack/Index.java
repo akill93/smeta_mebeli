@@ -213,7 +213,134 @@ Smeta_1 = new JLabel("Данные для составления сметы за
 	   	JComboBox(str) значит что мы в качестве строк
 	   	выпадающего списка принимаем считанные строки параметром str
 	 	*/
-        
+               
+		Button_panel.add(Sost_smetu);//Добавление кнопки на панель Button_panel
+		
+		//Добавление компонентов JLabel, JTextField, JComboBox, JCheckBox на панели Smeta_panel и Smeta_panel_1
+		Smeta_panel.add(Smeta_1);
+		Smeta_panel.add(Smeta_2);
+
+		Smeta_panel_1.add(Smeta_3);
+		Smeta_panel_1.add(Name_combobox);
+		Smeta_panel_1.add(Smeta_4);
+		Smeta_panel_1.add(Kol_prod_text);
+		Smeta_panel_1.add(Smeta_5);
+		Smeta_panel_1.add(Smeta_pust);
+		Smeta_panel_1.add(Smeta_6);
+		Smeta_panel_1.add(Stoim_mater_text);
+		Smeta_panel_1.add(Smeta_7);
+		Smeta_panel_1.add(Stoim_kompl_text);	
+		Smeta_panel_1.add(Smeta_8);
+		Smeta_panel_1.add(Stoim_vspom_mater_text);	
+		Smeta_panel_1.add(Smeta_9);
+		Smeta_panel_1.add(Toplivo_text);	
+		Smeta_panel_1.add(Smeta_10);
+		Smeta_panel_1.add(Zaprl_text);
+		Smeta_panel_1.add(Smeta_11);
+		Smeta_panel_1.add(Ras_amort_checkbox);
+		Smeta_panel_1.add(Smeta_12);
+		Smeta_panel_1.add(Stoim_stanka_text);
+		Smeta_panel_1.add(Smeta_13);
+		Smeta_panel_1.add(Srok_sl_text);
+		Smeta_panel_1.add(Smeta_14);
+		Smeta_panel_1.add(Amort_text);
+		Smeta_panel_1.add(Smeta_15);
+		Smeta_panel_1.add(Pr_rash_text);
+		Smeta_panel_1.add(Smeta_16);
+		Smeta_panel_1.add(Kol_detal_text);		
+		//Добавление компонентов JLabel, JTextField, JComboBox, JCheckBox на панели Smeta_panel и Smeta_panel_1
+		
+		//поля для расчета амортизации недоступны
+		Stoim_stanka_text.setEditable(false);
+		Srok_sl_text.setEditable(false);
+		
+		Ras_amort_checkbox.addItemListener(new ItemListener(){   /*Для компонента флажок устанавливаем слушатель события                                                        
+			Если нажать на компонент - сработает проверка выбран флажок или снят */                                                     
+			public void itemStateChanged(ItemEvent e) 
+			/*. В теле метода itemStateChanged располагается код, который выполняется при смене состояния флажка. */
+			{
+				if (e.getSource()==Ras_amort_checkbox)//если событие произошло именно с флажком Ras_amort_checkbox, то выполняется следующее
+					if(e.getStateChange()==1){ /* Если данный компонент флажок включен (==1), то это означает что выбрано
+					что нужно рассчитать амортизацию  */
+						Amort_text.setEditable(false); //поле для ввода амортизации становится недоступно 
+						Stoim_stanka_text.setEditable(true); 
+						Srok_sl_text.setEditable(true);
+						/*поля для ввода стоимости станка и срока службы станка 
+						становятся доступными*/
+						Ras_amort_int=1; //переменная которая отвечает за то нужно ли рассчитывать амортизацию,=1 - нужно
+						}
+					else { //если флажок выключен, то значит амортизацию рассчитывать не нужно
+						Amort_text.setEditable(true);//поле для ввода амортизации становится доступным 
+						Stoim_stanka_text.setEditable(false);
+						Srok_sl_text.setEditable(false);
+						/*поля для ввода стоимости станка и срока службы станка 
+						становятся недоступными*/
+						Ras_amort_int=0;//переменная которая отвечает за то нужно ли рассчитывать амортизацию,=0 - не нужно
+					}
+			}                                                       
+    	   }); 	
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   
+    	   //проверка данных, введенных пользователем
+    public static boolean isValidInput(JTextField jtxt, String description) {
+
+        JDialog D = new JDialog();
+		//если был введен какой-либо текст
+        if (jtxt.getText().trim().length() > 0) {
+            //проверка на ввод только целого числа
+            try { /* Для задания блока программного кода, который требуется защитить от исключений, используется ключевое слово try. 
+				Сразу же после try-блока помещается блок catch, задающий тип исключения которое вы хотите обрабатывать.
+				Исключение – это проблемная ситуация, возникающая по мере выполнения кода программы. Работает она так:
+				1.Выполняется код внутри блока try. 2.Если в нём ошибок нет, то блок catch(err) игнорируется, то есть выполнение 
+				доходит до конца try и потом прыгает через catch. 3.Если в нём возникнет ошибка, то выполнение try на ней
+				 прерывается, и управление прыгает в начало блока catch(err).
+				*/
+              
+                 double num = Double.parseDouble(jtxt.getText()); //попытка преобразовать текст в целое число      
+                return true; //если все нормально - возвращаем true
+
+            } catch (NumberFormatException e) {
+            	/* Для задания блока программного кода, который требуется защитить от исключений, используется ключевое слово try. 
+				Сразу же после try-блока помещается блок catch, задающий тип исключения которое вы хотите обрабатывать.
+				Исключение – это проблемная ситуация, возникающая по мере выполнения кода программы. Работает она так:
+				1.Выполняется код внутри блока try. 2.Если в нём ошибок нет, то блок catch(err) игнорируется, то есть выполнение 
+				доходит до конца try и потом прыгает через catch. 3.Если в нём возникнет ошибка, то выполнение try на ней
+				 прерывается, и управление прыгает в начало блока catch(err).
+				*/
+
+                //предупреждение - неверный формат числа
+                JOptionPane.showMessageDialog(D, "Вы должны ввести целое число!", "Ошибка", JOptionPane.WARNING_MESSAGE);
+
+                //расположить курсор в текстовое поле, чтобы пользователь еще раз ввел число
+                jtxt.requestFocus();
+                jtxt.setText("");//очистить текстовое поле
+
+                return false;//ошибка - возвращаем false
+            }
+
+        } else {// если пользователь не ввели никаких данных
+
+            //предупреждение, что нужно ввести данные
+            JOptionPane.showMessageDialog(D, "Введите " + description, "Ошибка", JOptionPane.WARNING_MESSAGE);
+
+            //расположить курсор в текстово окне, чтобы пользователь еще раз ввел число
+            jtxt.requestFocus();
+            jtxt.selectAll();//очистить текстовое поле
+
+            //ошибка - возвращаем false
+            return false;
+        }
 
 }
 }
