@@ -311,7 +311,8 @@ public class Index extends JFrame{
     	    		(isValidInput(Stoim_vspom_mater_text, "стоимость вспомогательных материалов"))&& 
     	    		(isValidInput(Toplivo_text, "стоимость топлива и энергии"))&& 
     	    		(isValidInput(Zaprl_text, "расходы на оплату труда"))&& 
-    	    		(isValidInput(Pr_rash_text, "прочие расходы")))
+    	    		(isValidInput(Pr_rash_text, "прочие расходы"))&& 
+    	    		(isValidInput(Kol_detal_text, "количество изделий")))
     	    		/* if - оператор если. * isValidInput проверяет данные на правильность, т.е. 
     		 		если в текстовые поля введены буквы или символы (текст, который невозможно преобразовать в цифры).
     		   		Если введены некорректные данные, то выдает ошибку */	
